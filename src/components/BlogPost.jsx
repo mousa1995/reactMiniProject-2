@@ -8,8 +8,11 @@ export default class BlogPost extends Component {
         super(props);
 
         this.state = {
-            posts: null
+            posts: null,
+            currentPost: null
         }
+
+        this.handleChangePost = this.handleChangePost.bind(this);
     }
 
     async getPost() {
@@ -18,16 +21,21 @@ export default class BlogPost extends Component {
         return await posts.json();
     }
 
+    handleChangePost(index) {
+        console.log(index);
+        this.setState({ currentPost: index })
+    }
+
     componentDidMount() {
         this.getPost().then(posts => {
-            this.setState({ posts })
+            this.setState({ posts, currentPost: 0 })
         })
     }
 
     render() {
         return (
             <>
-                <Sidebar posts={this.state.posts} />
+                <Sidebar posts={this.state.posts} handleChangePost={this.handleChangePost} />
                 <Content />
             </>
         )
