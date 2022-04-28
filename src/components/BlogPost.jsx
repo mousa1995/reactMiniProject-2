@@ -27,7 +27,7 @@ export default class BlogPost extends Component {
     render() {
         return (
             <>
-                <Sidebar />
+                <Sidebar posts={this.state.posts} />
                 <Content />
             </>
         )
