@@ -5,7 +5,7 @@ import Comments from './Comments';
 export default class Content extends Component {
     render() {
         return (
-            <div class="container">
+            <div className="container">
                 <Post />
                 <Comments />
             </div>

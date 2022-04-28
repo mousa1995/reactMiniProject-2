@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Post() {
     return (
-        <div class="post">
+        <div className="post">
             <img src="./assets/1.jpg" alt="" />
             <h1>Post Title</h1>
             <div>She never liked cleaning the sink. It was beyond her comprehension how it got so dirty so quickly.
