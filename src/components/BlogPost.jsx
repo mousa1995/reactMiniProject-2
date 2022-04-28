@@ -22,7 +22,6 @@ export default class BlogPost extends Component {
     }
 
     handleChangePost(index) {
-        console.log(index);
         this.setState({ currentPost: index })
     }
 
@@ -36,7 +35,7 @@ export default class BlogPost extends Component {
         return (
             <>
                 <Sidebar posts={this.state.posts} handleChangePost={this.handleChangePost} />
-                <Content />
+                {null != this.state.currentPost && <Content currentPost={this.state.currentPost} data={this.state.posts} />}
             </>
         )
     }
