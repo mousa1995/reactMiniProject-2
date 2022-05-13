@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Comment() {
+export default function Comment(props) {
     return (
         <div className="comment">
-            <p>Comment 3</p>
+            <p>{props.body}</p>
         </div>
     )
 }
