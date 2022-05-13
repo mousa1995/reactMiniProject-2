@@ -13,7 +13,7 @@ export default class Content extends Component {
     }
 
     async getComments() {
-        const comments = await fetch(`http://localhost:3001/comments?post-id=${1}`);
+        const comments = await fetch(`http://localhost:3001/comments?post-id=${this.props.currentPost + 1}`);
 
         return await comments.json();
     }
@@ -25,6 +25,17 @@ export default class Content extends Component {
             })
         })
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.currentPost != this.props.currentPost) {
+            this.getComments().then(comments => {
+                this.setState({
+                    comments
+                })
+            })
+        }
+    }
+
     render() {
         return (
             <div className="container">
